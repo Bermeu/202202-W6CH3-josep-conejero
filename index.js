@@ -5,7 +5,7 @@ const debug = require("debug")("sumasJosep");
 const prompt = require("prompt");
 const http = require("http");
 const url = require("url");
-const operaciones = require("./operations");
+const operaciones = require("./operaciones");
 
 const server = http.createServer();
 const port = process.env.SERVER_PORT || 3002;
@@ -22,7 +22,7 @@ server.on("request", (request, response) => {
   response.statusCode = 200;
   response.setHeader("Content-type", "text/html");
   response.write("<h1>Resultados:</h1>");
-  response.write("<h1>Resultados:</h1>");
+  response.write(`<p>Suma: ${resultados.resultadoSuma}</p>`);
   response.end();
 });
 
