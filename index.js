@@ -5,6 +5,7 @@ const debug = require("debug")("sumasJosep");
 const prompt = require("prompt");
 const http = require("http");
 const url = require("url");
+const operaciones = require("./operations");
 
 const server = http.createServer();
 const port = process.env.SERVER_PORT || 3002;
@@ -16,11 +17,12 @@ server.listen(port, () => {
 server.on("request", (request, response) => {
   debug(`Request arrived at ${request.url} with method ${request.method}`);
 
-  const { a, b } = url.parse(request.url, true).query;
-  const results = operations(a, b);
+  const { num1, num2 } = url.parse(request.url, true).query;
+  const resultados = operaciones(num1, num2);
   response.statusCode = 200;
   response.setHeader("Content-type", "text/html");
-  response.write();
+  response.write("<h1>Resultados:</h1>");
+  response.write("<h1>Resultados:</h1>");
   response.end();
 });
 
