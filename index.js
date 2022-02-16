@@ -20,21 +20,21 @@ server.on("request", (request, response) => {
   const { num1, num2 } = url.parse(request.url, true).query;
   const resultados = operaciones(num1, num2);
 
-  if (request.url === "/calculator") {
-    response.statusCode = 200;
-    response.setHeader("Content-type", "text/html");
-    response.write("<h1>Resultados:</h1>");
-    response.write(`<p>Suma: ${resultados.resultadoSuma}</p>`);
-    response.write(`<p>Resta: ${resultados.resultadoResta}</p>`);
-    response.write(
-      `<p>Multiplicaci&oacute;n: ${resultados.resultadoMultiplicacion}</p>`
-    );
-    response.write(`<p>Divisi&oacute;n: ${resultados.resultadoDivision}</p>`);
-  } else {
+  // if (request.url === /calculator/) {
+  response.statusCode = 200;
+  response.setHeader("Content-type", "text/html");
+  response.write("<h1>Resultados:</h1>");
+  response.write(`<p>Suma: ${resultados.resultadoSuma}</p>`);
+  response.write(`<p>Resta: ${resultados.resultadoResta}</p>`);
+  response.write(
+    `<p>Multiplicaci&oacute;n: ${resultados.resultadoMultiplicacion}</p>`
+  );
+  response.write(`<p>Divisi&oacute;n: ${resultados.resultadoDivision}</p>`);
+  /* } else {
     response.statusCode = 404;
     response.setHeader("Content-type", "text/html");
-    response.write("<h1>Página no encontrada</h1>");
-  }
+    response.write("<h1>P&aacute;gina no encontrada</h1>");
+  } */
   response.end();
 });
 
